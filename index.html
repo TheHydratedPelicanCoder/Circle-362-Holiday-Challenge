@@ -1,19 +1,138 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Name of chosen challenge</title>
+    <title>SchoolStat</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    
-    <h2>make some magic here!!</h2>
+<h1>SchoolStat</h1>
+  
+    <h3>Instructors</h3>
+
+<table id="myTable2">
+<tr>
+<!--When a header is clicked, run the sortTable function, with a parameter,
+0 for sorting by names, 1 for sorting by country: -->
+<th onclick="sortTable(0)">Name</th>
+<th>Email Address</th>
+<th>Sex</th>
+<th onclick="sortTable(1)">Courses</th>
+<th onclick="sortTable(2)">Age</th>
+</tr>
+        <tr>
+          <td>Joanne Letterick</td>
+          <td>jletterick1@wp.com</td>
+          <td>Female</td>
+          <td>7</td>
+          <td>23</td>
+        </tr>
+        <tr>
+          <td>Rodrick Deboy</td>
+          <td>rdeboy4@geocities.jp</td>
+          <td>Male</td>
+          <td>14</td>
+          <td>30</td>
+        </tr>
+          <tr>
+          <td>Corbett Stagg</td>
+          <td>cbstagg99@email.com</td>
+          <td>Male</td>
+          <td>10</td>
+          <td>24</td>
+        </tr>
+        <tr>
+          <td>Sybille Finnmore</td>
+          <td>sfinnmore08@geocities.ge</td>
+          <td>Female</td>
+          <td>19</td>
+          <td>27</td>
+        </tr>
+        <tr>
+          <td>Ilyse Godlonton</td>
+          <td>igodlontond@dailymotion.com</td>
+          <td>Female</td>
+          <td>12</td>
+          <td>28</td>
+        </tr>
+        <tr>
+          <td>Mala Thomesson</td>
+          <td>mthomessonm@virginia.edu</td>
+          <td>Male</td>
+          <td>5</td>
+          <td>31</td>
+        </tr>
+  <script>
+function sortTable(n) {
+  var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+  table = document.getElementById("myTable2");
+  switching = true;
+  // Set the sorting direction to ascending:
+  dir = "asc";
+  /* Make a loop that will continue until
+  no switching has been done: */
+  while (switching) {
+    // Start by saying: no switching is done:
+    switching = false;
+    rows = table.rows;
+    /* Loop through all table rows (except the
+    first, which contains table headers): */
+    for (i = 1; i < (rows.length - 1); i++) {
+      // Start by saying there should be no switching:
+      shouldSwitch = false;
+      /* Get the two elements you want to compare,
+      one from current row and one from the next: */
+      x = rows[i].getElementsByTagName("TD")[n];
+      y = rows[i + 1].getElementsByTagName("TD")[n];
+      /* Check if the two rows should switch place,
+      based on the direction, asc or desc: */
+      if (dir == "asc") {
+        if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+          // If so, mark as a switch and break the loop:
+          shouldSwitch = true;
+          break;
+        }
+      } else if (dir == "desc") {
+        if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+          // If so, mark as a switch and break the loop:
+          shouldSwitch = true;
+          break;
+        }
+      }
+    }
+    if (Number(x.innerHTML) > Number(y.innerHTML)) {
+      shouldSwitch = true;
+        break;
+      };
+    if (shouldSwitch) {
+      /* If a switch has been marked, make the switch
+      and mark that a switch has been done: */
+      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+      switching = true;
+      // Each time a switch is done, increase this count by 1:
+      switchcount ++;
+    } else {
+      /* If no switching has been done AND the direction is "asc",
+      set the direction to "desc" and run the while loop again. */
+      if (switchcount == 0 && dir == "asc") {
+        dir = "desc";
+        switching = true;
+      }
+    }
+  }
+}
+</script>
+  
+    <button>Stats</button>
 
     <!-- // ============= EEND DO NOT EDIT ============== // -->
     <script src="index.mjs" type="module"></script>
     <!-- // ============= EEND DO NOT EDIT ============== // -->
 </body>
+
 </html>

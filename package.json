@@ -1,0 +1,22 @@
+{
+  "name": "schoolstat",
+  "version": "1.0.0",
+  "description": "Stats for a tech school.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TheHydratedPelicanCoder/Circle-362-Holiday-Challenge.git"
+  },
+  "author": "Circle-362",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/TheHydratedPelicanCoder/Circle-362-Holiday-Challenge/issues"
+  },
+  "homepage": "https://github.com/TheHydratedPelicanCoder/Circle-362-Holiday-Challenge#readme",
+  "dependencies": {
+    "express": "^4.18.1"
+  }
+}
